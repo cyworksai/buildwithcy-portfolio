@@ -230,6 +230,28 @@ nav{
   transition:gap .2s;padding:0;
 }
 .btn-text-y:hover{gap:12px}
+/* ── FEATURED CTA ────────────────────────────────────────── */
+@keyframes pulse-glow{
+  0%,100%{box-shadow:0 0 0 0 rgba(245,196,0,.5),0 0 20px rgba(245,196,0,.15)}
+  50%{box-shadow:0 0 0 8px rgba(245,196,0,0),0 0 32px rgba(245,196,0,.35)}
+}
+@keyframes nudge-arrow{
+  0%,100%{transform:translateX(0)}
+  50%{transform:translateX(5px)}
+}
+.btn-feat{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:16px 32px;border-radius:var(--r);
+  background:var(--y);color:var(--dk);
+  font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  text-decoration:none;transition:background .2s,transform .2s;
+  animation:pulse-glow 2.5s ease-in-out infinite;
+  border:none;cursor:pointer;
+}
+.btn-feat:hover{background:var(--y-dk);transform:translateY(-2px);animation:none;
+  box-shadow:0 8px 24px rgba(245,196,0,.4)}
+.btn-feat .arr{display:inline-block;animation:nudge-arrow 1.2s ease-in-out infinite}
+.btn-feat:hover .arr{animation:none;transform:translateX(4px)}
 .btn-text-l{
   display:inline-flex;align-items:center;gap:8px;
   padding:11px 22px;border-radius:var(--r);
@@ -1396,14 +1418,13 @@ footer{
           <div class="feat-block-label">What I Would Test Next</div>
           <p class="feat-block-text">Whether a guided configuration step — showing buyers a live preview of their selection — reduces hesitation on complex variant combinations. Worth testing before assuming the current selection UI is optimal.</p>
         </div>
-        <div style="padding-top:24px">
+        <div style="padding-top:28px">
           <a href="drivecraft.html"
-             class="btn btn-y" data-track="case-drivecraft"
-             aria-label="Read the DriveCraft case study"
-             style="display:inline-flex;gap:10px;font-size:14px;letter-spacing:1.5px">
-            Read the DriveCraft Case Study <span aria-hidden="true">→</span>
+             class="btn-feat" data-track="case-drivecraft"
+             aria-label="Read the DriveCraft case study">
+            Read the Case Study <span class="arr" aria-hidden="true">→</span>
           </a>
-          <p style="margin-top:12px;font-size:12px;color:var(--tx-ds);letter-spacing:1px;text-transform:uppercase">Headless Shopify · Live Demo Available</p>
+          <p style="margin-top:14px;font-size:12px;color:var(--tx-ds);letter-spacing:1px;text-transform:uppercase">Headless Shopify · Live Demo Available</p>
         </div>
       </div>
     </div>
