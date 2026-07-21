@@ -217,12 +217,14 @@ nav{
 }
 .btn-text-y:hover{gap:12px}
 .btn-text-l{
-  background:none;border:none;cursor:pointer;
-  font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
-  color:var(--y);display:inline-flex;align-items:center;gap:6px;
-  transition:gap .2s;padding:0;text-decoration:underline;text-underline-offset:3px;
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 22px;border-radius:var(--r);
+  background:var(--y);color:var(--dk);
+  font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;
+  text-decoration:none;transition:background .2s,gap .2s;
+  border:none;cursor:pointer;min-height:42px;
 }
-.btn-text-l:hover{gap:12px;color:var(--y-dk)}
+.btn-text-l:hover{background:var(--y-dk);gap:12px;color:var(--dk)}
 
 /* ── REVEAL ─────────────────────────────────────────────── */
 .rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
