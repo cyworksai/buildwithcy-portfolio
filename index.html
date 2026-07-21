@@ -874,7 +874,10 @@ nav{
   max-height:0;overflow:hidden;
   transition:max-height .35s ease,padding-bottom .3s;
 }
-.faq-item.open .faq-ans{max-height:400px;padding-bottom:24px}
+.faq-item.open .faq-ans{max-height:700px;padding-bottom:24px}
+.faq-ans ul{margin:10px 0 4px 18px}
+.faq-ans ul li{margin-bottom:6px}
+.faq-ans strong{color:var(--tx-l)}
 
 /* ── CONTACT ─────────────────────────────────────────────── */
 #contact{
@@ -1832,11 +1835,67 @@ footer{
 
       <div class="faq-item rv">
         <button class="faq-btn" aria-expanded="false">
-          What kinds of Shopify projects do you accept?
+          How long does it take to build a Shopify store?
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
         <div class="faq-ans" id="faq-ans-1" role="region">
-          I work on Shopify store builds and redesigns, product and landing pages, store improvements, and ongoing implementation support. I'm a good fit for product-based businesses that need someone who understands both the storefront and the business behind it, and for agencies needing a reliable Shopify execution partner.
+          <strong>Most Shopify store builds are completed in 2 to 4 weeks.</strong> The exact timeline depends on scope, number of pages, and level of custom functionality required.
+          <ul>
+            <li><strong>Standard theme customization + launch:</strong> 1–2 weeks</li>
+            <li><strong>Full store build (custom pages, collections, apps):</strong> 2–3 weeks</li>
+            <li><strong>Headless or complex custom build:</strong> 4–6 weeks</li>
+            <li>Every project starts with a scoping conversation to lock in an accurate timeline before work begins</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faq-item rv">
+        <button class="faq-btn" aria-expanded="false">
+          How much does it cost to hire a Shopify developer?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-ans" role="region">
+          <strong>Shopify development pricing varies by scope.</strong> Every project is quoted individually based on your specific requirements — no generic packages.
+          <ul>
+            <li>Basic theme customizations and fixes are priced at the lower end</li>
+            <li>Full store builds with custom design, apps, and launch support are mid-range</li>
+            <li>Headless Shopify builds, AI integrations, or complex web apps are priced based on complexity</li>
+            <li>You only pay for what your project actually needs</li>
+            <li>To get an estimate, email <strong>hello@buildwithcy.com</strong> with your project details</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faq-item rv">
+        <button class="faq-btn" aria-expanded="false">
+          Can you migrate my existing website to Shopify?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-ans" role="region">
+          <strong>Yes — platform migrations to Shopify are fully supported</strong>, including product data, customer records, collections, and page content.
+          <ul>
+            <li>Supports migration from WooCommerce, Wix, Squarespace, BigCommerce, and custom-built sites</li>
+            <li>Migration is planned to minimize downtime and preserve your existing SEO structure</li>
+            <li>Products, collections, metadata, and redirects are all handled</li>
+            <li>Post-migration testing and QA is included before go-live</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faq-item rv">
+        <button class="faq-btn" aria-expanded="false">
+          Do you build more than just Shopify stores?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-ans" role="region">
+          <strong>Yes — Shopify is a core specialty, but the scope goes further.</strong> Past projects include a headless Shopify storefront, an AI-concept store, a custom e-commerce management system, and multiple web applications.
+          <ul>
+            <li><strong>Shopify stores</strong> — new builds, redesigns, theme customization, app integrations</li>
+            <li><strong>Headless commerce</strong> — custom frontend with Shopify as the backend</li>
+            <li><strong>Web applications</strong> — dashboards, internal tools, custom management systems</li>
+            <li><strong>AI-powered apps</strong> — tools integrated with ChatGPT, Claude AI, and Gemini</li>
+            <li><strong>Landing pages</strong> — high-converting pages for product launches and campaigns</li>
+          </ul>
         </div>
       </div>
 
@@ -1846,7 +1905,17 @@ footer{
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
         <div class="faq-ans" role="region">
-          Yes. Improvement work is often more impactful than a full rebuild. I can review what you currently have, identify the highest-priority issues, and implement focused improvements — without touching things that are already working.
+          Yes. Improvement work is often more impactful than a full rebuild. I can review what you currently have, identify the highest-priority issues, and implement focused improvements — without touching things that are already working well.
+        </div>
+      </div>
+
+      <div class="faq-item rv">
+        <button class="faq-btn" aria-expanded="false">
+          Do you offer ongoing support after launch?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-ans" role="region">
+          Yes. Ongoing support is available after launch for updates, fixes, new features, and improvements as your store grows. Support can be arranged as a monthly retainer or on a per-project basis — whichever fits your workflow better.
         </div>
       </div>
 
@@ -1872,16 +1941,6 @@ footer{
 
       <div class="faq-item rv">
         <button class="faq-btn" aria-expanded="false">
-          Do you provide ongoing implementation support?
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </button>
-        <div class="faq-ans" role="region">
-          Yes. I offer flexible ongoing support for stores that need consistent help — product updates, content changes, maintenance, troubleshooting, and general implementation work. Ongoing arrangements work well when there's a regular volume of smaller tasks rather than a single defined project.
-        </div>
-      </div>
-
-      <div class="faq-item rv">
-        <button class="faq-btn" aria-expanded="false">
           What do you need before a project starts?
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
@@ -1892,21 +1951,11 @@ footer{
 
       <div class="faq-item rv">
         <button class="faq-btn" aria-expanded="false">
-          How do you estimate timelines and pricing?
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </button>
-        <div class="faq-ans" role="region">
-          Both depend on scope and content readiness. A focused product-page improvement may take a few days; a full store build takes longer. I provide a realistic estimate after understanding your requirements — not a generic price list that ignores what the project actually involves.
-        </div>
-      </div>
-
-      <div class="faq-item rv">
-        <button class="faq-btn" aria-expanded="false">
           What happens after I submit an inquiry?
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
         <div class="faq-ans" role="region">
-          I'll review the details you share and respond with whether I'm a good fit and what the most practical next step would be. If I'm not the right person for your project, I'll tell you honestly. No pressure, no generic sales response.
+          I read every message personally and respond within 1–2 business days. I'll let you know whether I'm a good fit and what the most practical next step would be. If I'm not the right person for your project, I'll tell you honestly — no pressure, no generic sales response.
         </div>
       </div>
 
