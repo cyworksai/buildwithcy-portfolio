@@ -314,6 +314,34 @@ nav{
 .bn1{top:14px;left:14px}
 .bn2{bottom:14px;left:14px}
 
+/* ── MARQUEE ─────────────────────────────────────────────── */
+.mq{
+  background:var(--y);
+  padding:14px 0;
+  overflow:hidden;
+  border-top:1px solid rgba(0,0,0,.08);
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
+.mq-track{
+  display:inline-flex;white-space:nowrap;
+  animation:mq 30s linear infinite;
+}
+.mq-track:hover{animation-play-state:paused}
+.mq-item{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:17px;letter-spacing:3px;
+  color:var(--dk);padding:0 28px;
+}
+.mq-sep{
+  font-size:14px;color:rgba(0,0,0,.3);
+  padding:0;align-self:center;
+}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){
+  .mq-track{animation:none}
+  .mq{overflow-x:auto}
+}
+
 /* ── EVIDENCE STRIP ─────────────────────────────────────── */
 #evidence{
   background:var(--iv);
@@ -1081,6 +1109,33 @@ footer{
   </div>
 </section>
 
+<!-- MARQUEE -->
+<div class="mq" aria-hidden="true">
+  <div class="mq-track">
+    <span class="mq-item">Shopify Builds</span><span class="mq-sep">✦</span>
+    <span class="mq-item">Theme Customization</span><span class="mq-sep">✦</span>
+    <span class="mq-item">Product Page UX</span><span class="mq-sep">✦</span>
+    <span class="mq-item">Responsive Implementation</span><span class="mq-sep">✦</span>
+    <span class="mq-item">Storefront Reviews</span><span class="mq-sep">✦</span>
+    <span class="mq-item">Liquid Development</span><span class="mq-sep">✦</span>
+    <span class="mq-item">E-commerce Support</span><span class="mq-sep">✦</span>
+    <span class="mq-item">Agency Collaboration</span><span class="mq-sep">✦</span>
+    <span class="mq-item">Mobile Optimization</span><span class="mq-sep">✦</span>
+    <span class="mq-item">AI-Assisted Development</span><span class="mq-sep">✦</span>
+    <!-- Duplicate for seamless loop -->
+    <span class="mq-item">Shopify Builds</span><span class="mq-sep">✦</span>
+    <span class="mq-item">Theme Customization</span><span class="mq-sep">✦</span>
+    <span class="mq-item">Product Page UX</span><span class="mq-sep">✦</span>
+    <span class="mq-item">Responsive Implementation</span><span class="mq-sep">✦</span>
+    <span class="mq-item">Storefront Reviews</span><span class="mq-sep">✦</span>
+    <span class="mq-item">Liquid Development</span><span class="mq-sep">✦</span>
+    <span class="mq-item">E-commerce Support</span><span class="mq-sep">✦</span>
+    <span class="mq-item">Agency Collaboration</span><span class="mq-sep">✦</span>
+    <span class="mq-item">Mobile Optimization</span><span class="mq-sep">✦</span>
+    <span class="mq-item">AI-Assisted Development</span><span class="mq-sep">✦</span>
+  </div>
+</div>
+
 <!-- EVIDENCE STRIP -->
 <section id="evidence" aria-labelledby="ev-heading">
   <div class="wrap">
@@ -1564,7 +1619,10 @@ footer{
         </div>
         <div class="about-tools">
           <strong>Platforms and tools</strong>
-          Shopify · Liquid · HTML · CSS · JavaScript · React · Next.js · Figma · Canva · Google Workspace · QA
+          Shopify · Liquid · HTML · CSS · JavaScript · React · Next.js · Figma · Canva · Adobe Photoshop · CapCut · Filmora · Google Workspace · QA
+          <br/><br/>
+          <strong>AI tools I work with</strong>
+          ChatGPT · Claude AI · Gemini
         </div>
         <div class="about-btns" style="margin-top:28px">
           <a href="#contact" class="btn btn-y" data-track="about-cta">Tell Me About Your Store</a>
