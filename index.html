@@ -1990,15 +1990,36 @@ footer{
 
     track('form-submission-attempt');
 
-    /*
-     * FORM INTEGRATION REQUIRED
-     * Connect this form to Formspree, Netlify Forms, or another backend before going live.
-     * Example (Formspree): change the form action and use fetch() to POST form data.
-     * Until connected, no submissions will be delivered.
-     */
-    status.className = 'form-status error';
-    status.style.display = 'block';
-    status.textContent = 'The form is not yet connected to a backend. Please email buildwithcy@gmail.com directly to get in touch.';
+    const btn = form.querySelector('.fsub');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    fetch('https://formspree.io/f/mwvgqvwe', {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(res => {
+      if(res.ok){
+        track('form-submission-success');
+        status.className = 'form-status success';
+        status.style.display = 'block';
+        status.textContent = '✓ Message sent! I\'ll review your details and get back to you within 1–2 business days.';
+        form.reset();
+      } else {
+        return res.json().then(d => { throw d; });
+      }
+    })
+    .catch(() => {
+      track('form-submission-error');
+      status.className = 'form-status error';
+      status.style.display = 'block';
+      status.textContent = 'Something went wrong. Please try again or email buildwithcy@gmail.com directly.';
+    })
+    .finally(() => {
+      btn.disabled = false;
+      btn.textContent = 'Send Project Details';
+    });
   });
 })();
 
