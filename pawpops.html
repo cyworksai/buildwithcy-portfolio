@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="PawPops Pet Wellness Store — Shopify concept store case study by Cyrah Fajardo. Custom sections, product visuals, app integrations, and mobile-friendly shopping flow."/>
+<title>PawPops Case Study — Build With Cy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --y:#F5C400;--y-dk:#C99F00;
+  --dk:#080808;--dk2:#111111;--dk3:#1A1A1A;--dk-bd:#2A2A2A;
+  --iv:#FFFDF7;--iv2:#F2EFE8;--iv3:#E8E3DA;--lt-bd:#DDD8CD;
+  --tx-d:#F0F0EC;--tx-dm:#C8C8C8;--tx-ds:#888880;
+  --tx-l:#151515;--tx-lm:#595959;--tx-ls:#8A8680;
+  --r:3px;--fs:17px;--lh:1.65;--w:1100px;--px:clamp(20px,4vw,64px);
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--iv);color:var(--tx-l);font-family:'DM Sans',sans-serif;font-size:var(--fs);line-height:var(--lh);overflow-x:hidden}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;font-size:inherit;cursor:pointer}
+ul{list-style:none}
+:focus-visible{outline:2px solid var(--y);outline-offset:3px}
+
+/* Skip */
+.skip{position:absolute;top:-100%;left:16px;background:var(--y);color:var(--dk);padding:8px 16px;font-weight:600;font-size:14px;border-radius:var(--r);z-index:9999;transition:top .2s}
+.skip:focus{top:8px}
+
+/* Nav */
+nav{position:sticky;top:0;z-index:100;background:rgba(8,8,8,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--dk-bd)}
+.nav-w{max-width:var(--w);margin:0 auto;padding:0 var(--px);height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;color:var(--tx-d)}
+.nav-logo span{color:var(--y)}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{font-size:13px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--tx-ds);transition:color .2s}
+.nav-links a:hover{color:var(--tx-d)}
+.nav-cta{background:var(--y)!important;color:var(--dk)!important;padding:10px 20px!important;border-radius:var(--r);font-weight:600!important;font-size:13px!important;letter-spacing:.3px!important;text-transform:none!important;transition:background .2s!important;white-space:nowrap}
+.nav-cta:hover{background:var(--y-dk)!important}
+.hb{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:4px}
+.hb span{display:block;width:22px;height:1.5px;background:var(--tx-d);border-radius:2px;transition:transform .25s,opacity .25s}
+.hb[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hb[aria-expanded="true"] span:nth-child(2){opacity:0}
+.hb[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mob{display:none;flex-direction:column;background:var(--dk2);border-top:1px solid var(--dk-bd);padding:8px 0 20px}
+.mob.open{display:flex}
+.mob a{padding:14px var(--px);font-size:14px;font-weight:500;letter-spacing:.5px;color:var(--tx-dm);border-bottom:1px solid var(--dk-bd);transition:color .2s}
+.mob a:last-child{border-bottom:none}
+.mob a:hover{color:var(--y)}
+.mob-cta-m{margin:16px var(--px) 0;background:var(--y);color:var(--dk);padding:14px;border-radius:var(--r);font-weight:600;text-align:center;border-bottom:none!important}
+
+/* Wrap */
+.wrap{max-width:var(--w);margin:0 auto;padding:0 var(--px)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:var(--r);font-size:14px;font-weight:600;cursor:pointer;border:none;min-height:46px;transition:background .2s,color .2s,border-color .2s;text-decoration:none;white-space:nowrap}
+.btn-y{background:var(--y);color:var(--dk)}
+.btn-y:hover{background:var(--y-dk)}
+.btn-dk{background:var(--dk);color:var(--tx-d)}
+.btn-dk:hover{background:var(--dk2)}
+.btn-ghost-l{background:transparent;color:var(--tx-l);border:1px solid var(--lt-bd)}
+.btn-ghost-l:hover{border-color:var(--tx-lm)}
+.btn-ghost-d{background:transparent;color:var(--tx-d);border:1px solid rgba(255,255,255,.2)}
+.btn-ghost-d:hover{border-color:rgba(255,255,255,.5)}
+.btn-lg{padding:16px 32px;font-size:15px;min-height:52px}
+
+/* Labels */
+.lbl{display:inline-block;font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:16px}
+.lbl-l{color:var(--tx-ls)}
+.lbl-y{color:var(--y)}
+
+/* Chips */
+.chip-l{font-size:11px;font-weight:500;background:var(--iv2);border:1px solid var(--lt-bd);color:var(--tx-lm);padding:5px 12px;border-radius:100px;display:inline-flex;align-items:center}
+.chip-dk{font-size:11px;font-weight:500;background:var(--dk3);border:1px solid var(--dk-bd);color:var(--tx-ds);padding:5px 12px;border-radius:100px;display:inline-flex;align-items:center}
+
+/* Reveal */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.rv.on{opacity:1;transform:translateY(0)}
+
+/* ── HERO ───────────────────────────────── */
+#cs-hero{background:var(--dk);padding:clamp(48px,6vw,80px) 0 clamp(48px,6vw,72px);border-bottom:1px solid var(--dk-bd)}
+.hero-grid{display:grid;grid-template-columns:1fr 380px;gap:clamp(32px,5vw,64px);align-items:start}
+.cs-back{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--tx-ds);margin-bottom:32px;transition:color .2s}
+.cs-back:hover{color:var(--y)}
+.cs-back-arrow{width:30px;height:30px;border-radius:50%;background:rgba(245,196,0,.1);border:1px solid rgba(245,196,0,.2);display:flex;align-items:center;justify-content:center;font-size:13px;transition:background .2s,color .2s}
+.cs-back:hover .cs-back-arrow{background:var(--y);color:var(--dk)}
+.cs-eyebrow{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--y);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.cs-eyebrow::before{content:'';width:24px;height:1px;background:var(--y)}
+.hero-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,7vw,88px);line-height:.93;letter-spacing:.5px;color:var(--tx-d);margin-bottom:20px}
+.hero-h1 span{color:var(--y)}
+.hero-intro{font-size:17px;color:var(--tx-dm);line-height:1.75;max-width:580px;margin-bottom:28px}
+.hero-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+
+/* Demo panel — right side of hero */
+.demo-panel{
+  background:var(--iv);
+  border-radius:8px;
+  overflow:hidden;
+  border:1px solid var(--lt-bd);
+  position:sticky;top:88px;
+}
+.demo-panel-img{
+  background:var(--iv3);
+  aspect-ratio:4/3;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.demo-panel-img img{width:100%;height:100%;object-fit:cover;object-position:top}
+.demo-panel-img-ph{
+  width:100%;height:100%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  color:var(--tx-ls);
+}
+.demo-panel-img-ph p{font-size:12px;text-align:center;max-width:140px;line-height:1.5}
+.demo-panel-body{padding:24px}
+.demo-panel-label{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--tx-ls);margin-bottom:12px}
+.demo-panel-title{font-size:17px;font-weight:600;color:var(--tx-l);margin-bottom:8px}
+.demo-panel-desc{font-size:14px;color:var(--tx-lm);line-height:1.6;margin-bottom:20px}
+/* Password badge */
+.pw-badge{
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--dk);border-radius:var(--r);
+  padding:12px 16px;margin-bottom:16px;
+  border:1px solid var(--dk-bd);
+}
+.pw-label{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--tx-ds)}
+.pw-value{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:28px;letter-spacing:4px;color:var(--y);
+  line-height:1;
+}
+.pw-hint{font-size:12px;color:var(--tx-ds);margin-bottom:16px;line-height:1.5}
+.demo-btn-full{width:100%;justify-content:center;font-size:15px;padding:14px 20px;min-height:50px}
+
+/* ── MID-PAGE DEMO CTA STRIP ──────────── */
+.demo-strip{
+  background:var(--dk2);
+  border-top:1px solid var(--dk-bd);
+  border-bottom:1px solid var(--dk-bd);
+  padding:20px 0;
+}
+.demo-strip-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:20px;flex-wrap:wrap;
+}
+.demo-strip-text{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.demo-strip-label{font-size:13px;color:var(--tx-dm)}
+.demo-strip-pw{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--dk3);border:1px solid var(--dk-bd);
+  padding:6px 14px;border-radius:var(--r);
+}
+.demo-strip-pw span:first-child{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--tx-ds)}
+.demo-strip-pw strong{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:4px;color:var(--y);line-height:1}
+
+/* ── SECTIONS ─────────────────────────── */
+.cs-sec{padding:clamp(56px,7vw,88px) 0;border-bottom:1px solid var(--lt-bd)}
+.cs-sec-dk{background:var(--dk2);border-bottom:1px solid var(--dk-bd)}
+.cs-sec h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,4vw,52px);line-height:.97;letter-spacing:.5px;margin-bottom:20px}
+.cs-sec-lt h2{color:var(--tx-l)}
+.cs-sec-dk h2{color:var(--tx-d)}
+.cs-body{font-size:17px;color:var(--tx-lm);line-height:1.75;margin-bottom:16px;max-width:760px}
+.cs-body-dk{color:var(--tx-dm)}
+
+/* Cards */
+.cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.cs-card{background:var(--iv2);border:1px solid var(--lt-bd);border-radius:6px;padding:28px}
+.cs-card-dk{background:var(--dk3);border:1px solid var(--dk-bd);border-radius:6px;padding:28px}
+.cs-card-label{display:inline-flex;align-items:center;background:var(--dk);color:var(--tx-d);border-radius:100px;padding:5px 12px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:14px}
+.cs-card-label-y{background:var(--y);color:var(--dk)}
+.cs-card h3,.cs-card-dk h3{font-size:17px;font-weight:600;margin-bottom:8px;line-height:1.2}
+.cs-card h3{color:var(--tx-l)}
+.cs-card-dk h3{color:var(--tx-d)}
+.cs-card p{font-size:15px;color:var(--tx-lm);line-height:1.7}
+.cs-card-dk p{font-size:15px;color:var(--tx-dm);line-height:1.7}
+
+/* Checklist */
+.cs-list{display:grid;gap:10px;margin-top:24px}
+.cs-list li{position:relative;padding-left:32px;font-size:15px;line-height:1.65;color:var(--tx-lm)}
+.cs-list li::before{content:'✓';position:absolute;left:0;top:1px;width:20px;height:20px;border-radius:50%;background:var(--y);color:var(--dk);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;line-height:1}
+.cs-list-dk li{color:var(--tx-dm)}
+
+/* Highlight */
+.cs-highlight{background:var(--dk2);border:1px solid var(--dk-bd);border-left:4px solid var(--y);border-radius:var(--r);padding:24px 28px;margin-top:28px}
+.cs-highlight h3{font-size:18px;font-weight:600;color:var(--tx-d);margin-bottom:10px}
+.cs-highlight p{font-size:15px;color:var(--tx-dm);line-height:1.75}
+
+/* Inline CTA after section */
+.sec-cta{
+  margin-top:36px;
+  padding:24px 28px;
+  background:var(--iv2);
+  border:1px solid var(--lt-bd);
+  border-radius:6px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+}
+.sec-cta-dk{background:var(--dk3);border-color:var(--dk-bd)}
+.sec-cta-text{font-size:15px;color:var(--tx-lm);line-height:1.5}
+.sec-cta-dk .sec-cta-text{color:var(--tx-dm)}
+.sec-cta-text strong{color:var(--tx-l);display:block;font-size:16px;margin-bottom:2px}
+.sec-cta-dk .sec-cta-text strong{color:var(--tx-d)}
+
+/* Tools */
+.cs-tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+
+/* Footer CTA */
+#cs-cta{background:var(--y);padding:clamp(56px,7vw,88px) 0}
+.cs-cta-inner{text-align:center}
+.cs-cta-inner h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5vw,68px);line-height:.95;color:var(--dk);margin-bottom:14px}
+.cs-cta-inner p{font-size:17px;color:rgba(0,0,0,.65);line-height:1.7;max-width:560px;margin:0 auto 28px}
+.cs-cta-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+
+/* Sticky mobile demo bar */
+.sticky-demo{
+  display:none;
+  position:fixed;bottom:0;left:0;right:0;z-index:90;
+  background:var(--dk);border-top:1px solid var(--dk-bd);
+  padding:12px var(--px);
+  align-items:center;justify-content:space-between;gap:12px;
+}
+.sticky-demo-pw{display:flex;align-items:center;gap:10px}
+.sticky-demo-pw span{font-size:12px;color:var(--tx-ds)}
+.sticky-demo-pw strong{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:3px;color:var(--y);line-height:1}
+
+/* Footer */
+footer{background:var(--dk);border-top:1px solid var(--dk-bd);padding:clamp(40px,5vw,64px) 0 28px}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:clamp(24px,4vw,48px);padding-bottom:40px;border-bottom:1px solid var(--dk-bd)}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:3px;color:var(--tx-d);margin-bottom:10px}
+.footer-logo span{color:var(--y)}
+.footer-desc{font-size:14px;color:var(--tx-ds);line-height:1.7;max-width:260px;margin-bottom:20px}
+.footer-contact a{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--tx-ds);margin-bottom:10px;transition:color .2s}
+.footer-contact a:hover{color:var(--tx-d)}
+.footer-col-h{font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--tx-ds);margin-bottom:18px}
+.footer-nav{display:flex;flex-direction:column;gap:10px}
+.footer-nav a{font-size:14px;color:var(--tx-ds);transition:color .2s}
+.footer-nav a:hover{color:var(--tx-d)}
+.footer-btm{padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--tx-ds);flex-wrap:wrap;gap:10px}
+.footer-btm a{color:var(--tx-ds);transition:color .2s}
+.footer-btm a:hover{color:var(--tx-d)}
+
+/* Responsive */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .demo-panel{position:static;max-width:480px}
+  .cs-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:680px){
+  :root{--fs:16px}
+  .nav-links{display:none}
+  .hb{display:flex}
+  .footer-grid{grid-template-columns:1fr}
+  .sticky-demo{display:flex}
+  body{padding-bottom:72px}
+  .demo-strip-inner{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to main content</a>
+
+<!-- NAV -->
+<nav role="navigation" aria-label="Main navigation">
+  <div class="nav-w">
+    <a href="index.html" class="nav-logo" aria-label="Build With Cy — home">BUILD WITH <span>CY</span></a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#standards">Approach</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact" class="nav-cta">Tell Me About Your Store</a></li>
+    </ul>
+    <button class="hb" id="hb" aria-expanded="false" aria-controls="mob-menu" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mob" id="mob-menu" hidden>
+    <a href="index.html#work">Work</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#standards">Approach</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="index.html#contact" class="mob-cta-m">Tell Me About Your Store</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="cs-hero" id="main">
+  <div class="wrap">
+    <div class="hero-grid">
+
+      <!-- Left: content -->
+      <div>
+        <a class="cs-back rv" href="index.html#work" aria-label="Back to portfolio">
+          <span class="cs-back-arrow">←</span>
+          Back to Portfolio
+        </a>
+        <div class="cs-eyebrow rv" style="transition-delay:.04s">Case Study · Concept Study</div>
+        <h1 class="hero-h1 rv" style="transition-delay:.06s">PawPops —<br>Pet Wellness <span>Store</span></h1>
+        <p class="hero-intro rv" style="transition-delay:.08s">
+          A Shopify concept store built for a playful, trustworthy pet wellness brand. This project shows how I approach product-based stores — custom sections, product visuals, app integrations, and a mobile-friendly shopping flow built to convert.
+        </p>
+        <div class="hero-chips rv" style="transition-delay:.1s">
+          <span class="chip-dk">Concept Study</span>
+          <span class="chip-dk">Shopify</span>
+          <span class="chip-dk">Liquid · HTML · CSS</span>
+          <span class="chip-dk">Canva · Photoshop</span>
+          <span class="chip-dk">Pet Wellness</span>
+        </div>
+        <div class="hero-btns rv" style="transition-delay:.12s">
+          <a href="https://pawpops-cuhuewhj.myshopify.com/" target="_blank" rel="noopener noreferrer"
+             class="btn btn-y btn-lg" data-track="pawpops-hero-demo">
+            View Live Demo →
+          </a>
+          <a href="index.html#contact" class="btn btn-ghost-d" data-track="pawpops-hero-hire">
+            Work With Me
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: sticky demo panel -->
+      <div class="rv" style="transition-delay:.1s">
+        <div class="demo-panel">
+          <div class="demo-panel-img">
+            <img src="images/pawpops.jpg" alt="PawPops Shopify store preview"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="demo-panel-img-ph" style="display:none">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+              <p>Add PawPops screenshot</p>
+            </div>
+          </div>
+          <div class="demo-panel-body">
+            <div class="demo-panel-label">Live Demo Available</div>
+            <div class="demo-panel-title">PawPops Pet Wellness Store</div>
+            <div class="demo-panel-desc">The store is live on Shopify. Password protected for portfolio use — enter the password below when prompted.</div>
+            <div class="pw-badge">
+              <div>
+                <div class="pw-label">Store Password</div>
+                <div class="pw-value">888</div>
+              </div>
+              <button onclick="navigator.clipboard.writeText('888').then(()=>{this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',1500)})"
+                      style="background:rgba(245,196,0,.15);border:1px solid rgba(245,196,0,.3);color:var(--y);padding:6px 12px;border-radius:var(--r);font-size:12px;font-weight:600;cursor:pointer;transition:background .2s"
+                      aria-label="Copy password 888 to clipboard">Copy</button>
+            </div>
+            <p class="pw-hint">Enter <strong style="color:var(--tx-d)">888</strong> when Shopify asks for the store password.</p>
+            <a href="https://pawpops-cuhuewhj.myshopify.com/" target="_blank" rel="noopener noreferrer"
+               class="btn btn-y demo-btn-full" data-track="pawpops-panel-demo">
+              Open Live Demo →
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT OVERVIEW -->
+<section class="cs-sec cs-sec-lt">
+  <div class="wrap">
+    <span class="lbl lbl-l">Project Overview</span>
+    <h2>What this project is about.</h2>
+    <p class="cs-body rv">
+      PawPops is a Shopify concept store for pet treats and wellness products — built to show how I approach a real product-based storefront from the ground up.
+    </p>
+    <p class="cs-body rv">
+      The goal was to avoid a basic template look and build something intentional — from the homepage layout and product messaging, to the badges, visuals, and app setup. Every section was built to help a customer understand or trust the product.
+    </p>
+    <div class="cs-highlight rv">
+      <h3>The challenge</h3>
+      <p>Pet wellness is a crowded category. The store had to feel genuinely trustworthy and brand-considered — not another generic template with stock photos. Every design decision had to earn its place.</p>
+    </div>
+    <!-- Mid-section CTA -->
+    <div class="sec-cta rv">
+      <div class="sec-cta-text">
+        <strong>See the store in action.</strong>
+        Live on Shopify — use password <strong>888</strong> when prompted.
+      </div>
+      <a href="https://pawpops-cuhuewhj.myshopify.com/" target="_blank" rel="noopener noreferrer"
+         class="btn btn-y" data-track="pawpops-overview-cta">View Demo →</a>
+    </div>
+  </div>
+</section>
+
+<!-- MY ROLE -->
+<section class="cs-sec cs-sec-dk">
+  <div class="wrap">
+    <span class="lbl lbl-y">My Role</span>
+    <h2>What I personally handled.</h2>
+    <p class="cs-body cs-body-dk rv">I was responsible for both the Shopify implementation and the creative assets — design, build, and visual content from start to finish.</p>
+    <div class="cs-grid rv">
+      <div class="cs-card-dk">
+        <span class="cs-card-label cs-card-label-y">Design + Build</span>
+        <h3>Shopify Store Setup</h3>
+        <p>Theme setup, page structure, homepage layout, product-focused sections, product page styling, and overall visual direction of the store.</p>
+      </div>
+      <div class="cs-card-dk">
+        <span class="cs-card-label cs-card-label-y">Creative Assets</span>
+        <h3>Product Photos &amp; Graphics</h3>
+        <p>Product visuals used throughout the store — photos, mockups, banners, badges, and promotional graphics prepared in Canva and Photoshop.</p>
+      </div>
+    </div>
+    <ul class="cs-list cs-list-dk rv" style="margin-top:28px">
+      <li>Shopify homepage and page structure</li>
+      <li>Custom homepage sections</li>
+      <li>Product page layout improvements</li>
+      <li>Product photos and visual assets</li>
+      <li>Canva and Photoshop graphics</li>
+      <li>Product image editing and mockups</li>
+      <li>Badge and label design direction</li>
+      <li>Homepage copy and product messaging</li>
+      <li>Mobile responsive design</li>
+      <li>SEO homepage title and description</li>
+      <li>Shopify app setup and basic integrations</li>
+    </ul>
+    <div class="sec-cta sec-cta-dk rv">
+      <div class="sec-cta-text">
+        <strong>Want to see the implementation live?</strong>
+        Password: <strong style="color:var(--y);font-size:18px;font-family:'Bebas Neue',sans-serif;letter-spacing:3px">888</strong>
+      </div>
+      <a href="https://pawpops-cuhuewhj.myshopify.com/" target="_blank" rel="noopener noreferrer"
+         class="btn btn-y" data-track="pawpops-role-cta">Open PawPops →</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT I BUILT -->
+<section class="cs-sec cs-sec-lt">
+  <div class="wrap">
+    <span class="lbl lbl-l">What I Built</span>
+    <h2>The storefront, section by section.</h2>
+    <p class="cs-body rv">The homepage was designed to guide shoppers through the brand, product benefits, trust points, and clear calls to action — in the order a real customer needs them.</p>
+    <div class="cs-grid rv">
+      <div class="cs-card">
+        <span class="cs-card-label">Storefront</span>
+        <h3>Custom Sections</h3>
+        <p>Product-focused homepage sections, feature highlights, benefit blocks, trust-style badges, and clean content sections for a polished shopping experience.</p>
+      </div>
+      <div class="cs-card">
+        <span class="cs-card-label">E-commerce</span>
+        <h3>Shopping Flow</h3>
+        <p>Layout planned to help customers understand the product quickly, trust the brand, and move naturally toward viewing or buying.</p>
+      </div>
+    </div>
+    <ul class="cs-list rv" style="margin-top:28px">
+      <li>Hero section with clear product positioning</li>
+      <li>Product benefit highlights</li>
+      <li>Custom feature sections</li>
+      <li>Trust-style badges</li>
+      <li>Product-focused content blocks</li>
+      <li>Product photos and promotional visuals</li>
+      <li>Website banners and branded graphics</li>
+      <li>Announcement bar</li>
+      <li>Shopify app integrations</li>
+      <li>SEO-friendly homepage copy</li>
+      <li>Mobile-friendly layout</li>
+    </ul>
+  </div>
+</section>
+
+<!-- DEMO STRIP — mid page -->
+<div class="demo-strip">
+  <div class="wrap">
+    <div class="demo-strip-inner">
+      <div class="demo-strip-text">
+        <span class="demo-strip-label">The store is live — see everything described above in action.</span>
+        <div class="demo-strip-pw">
+          <span>Password</span>
+          <strong>888</strong>
+        </div>
+      </div>
+      <a href="https://pawpops-cuhuewhj.myshopify.com/" target="_blank" rel="noopener noreferrer"
+         class="btn btn-y" data-track="pawpops-mid-strip">Open PawPops Store →</a>
+    </div>
+  </div>
+</div>
+
+<!-- VISUAL DESIGN -->
+<section class="cs-sec cs-sec-dk">
+  <div class="wrap">
+    <span class="lbl lbl-y">Visual Design &amp; Product Assets</span>
+    <h2>Warm, friendly, and built<br>for customer <span class="hl-y">trust.</span></h2>
+    <p class="cs-body cs-body-dk rv">I created and prepared all the visual assets used throughout the store — product photos, mockups, website banners, badges, and promotional-style graphics.</p>
+    <p class="cs-body cs-body-dk rv">Using Canva and Photoshop, I edited and styled the visuals to match the warm pet wellness brand direction and make the store feel polished, trustworthy, and ready to sell.</p>
+    <div class="cs-highlight rv" style="background:var(--dk3)">
+      <h3>Design direction</h3>
+      <p>Soft, playful, and approachable — without looking messy or overly childish. Rounded details, warm product visuals, clean sections, and trust-building graphics that make the store feel cute, clear, and credible.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY IT WORKS -->
+<section class="cs-sec cs-sec-lt">
+  <div class="wrap">
+    <span class="lbl lbl-l">Why It Works</span>
+    <h2>Designed for the customer, not just the brand.</h2>
+    <p class="cs-body rv">Instead of only making the site look nice, I focused on how customers would understand the product, trust the brand, and move toward buying.</p>
+    <ul class="cs-list rv">
+      <li>Customers can quickly understand what the product is</li>
+      <li>The brand feels warm, approachable, and trustworthy</li>
+      <li>Clear product benefits and visual hierarchy guide the eye</li>
+      <li>Product visuals make the store feel polished and realistic</li>
+      <li>The layout works well on both desktop and mobile</li>
+      <li>Practical Shopify setup and app integrations included</li>
+    </ul>
+    <div class="cs-highlight rv">
+      <h3>What I would test next</h3>
+      <p>Whether adding a short "Why PawPops?" section above the fold reduces bounce rate by helping first-time visitors understand the brand before they see products to buy.</p>
+    </div>
+    <div class="sec-cta rv">
+      <div class="sec-cta-text">
+        <strong>Judge for yourself — the store is live.</strong>
+        Use password <strong>888</strong> at the Shopify prompt.
+      </div>
+      <a href="https://pawpops-cuhuewhj.myshopify.com/" target="_blank" rel="noopener noreferrer"
+         class="btn btn-y" data-track="pawpops-why-cta">View Live Demo →</a>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="cs-sec cs-sec-dk" style="border-bottom:none">
+  <div class="wrap">
+    <span class="lbl lbl-y">Tools &amp; Skills Used</span>
+    <h2>What this project was built with.</h2>
+    <div class="cs-tools rv">
+      <span class="chip-l">Shopify</span>
+      <span class="chip-l">Liquid</span>
+      <span class="chip-l">HTML</span>
+      <span class="chip-l">CSS</span>
+      <span class="chip-l">Canva</span>
+      <span class="chip-l">Adobe Photoshop</span>
+      <span class="chip-l">Product Photography</span>
+      <span class="chip-l">Image Editing</span>
+      <span class="chip-l">Product Mockups</span>
+      <span class="chip-l">Website Banners</span>
+      <span class="chip-l">Promotional Graphics</span>
+      <span class="chip-l">Product Page Design</span>
+      <span class="chip-l">Mobile Responsive Design</span>
+      <span class="chip-l">SEO Basics</span>
+      <span class="chip-l">App Integrations</span>
+      <span class="chip-l">Brand Direction</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER CTA -->
+<section id="cs-cta">
+  <div class="wrap">
+    <div class="cs-cta-inner rv">
+      <h2>Have a store that needs<br>this kind of attention?</h2>
+      <p>Tell me what you're building or what isn't working. I'll let you know whether I'm the right fit and what the next step looks like.</p>
+      <div class="cs-cta-actions">
+        <a href="index.html#contact" class="btn btn-dk btn-lg" data-track="pawpops-footer-hire">Tell Me About Your Store</a>
+        <a href="https://pawpops-cuhuewhj.myshopify.com/" target="_blank" rel="noopener noreferrer"
+           class="btn btn-dk btn-lg" data-track="pawpops-footer-demo">View PawPops Demo →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">BUILD WITH <span>CY</span></div>
+        <p class="footer-desc">Shopify Builder + E-commerce Implementation. Helping product-based businesses build, improve, and manage storefronts that are easier to shop and easier to manage.</p>
+        <div class="footer-contact">
+          <a href="mailto:buildwithcy@gmail.com">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            buildwithcy@gmail.com
+          </a>
+          <a href="https://linkedin.com/in/buildwithcy" target="_blank" rel="noopener noreferrer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn · @buildwithcy
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-h">Navigation</div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="index.html#work">Work</a>
+          <a href="index.html#services">Services</a>
+          <a href="index.html#standards">Approach</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
+      </div>
+      <div>
+        <div class="footer-col-h">Other Work</div>
+        <nav class="footer-nav" aria-label="Case studies">
+          <a href="index.html#featured">DriveCraft</a>
+          <a href="pawpops.html">PawPops</a>
+          <a href="index.html#work">PopNote AI</a>
+          <a href="index.html#work">Custom System</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-btm">
+      <span>© 2026 Cyrah Fajardo · Build With Cy. All rights reserved.</span>
+      <a href="index.html#contact">Privacy Notice</a>
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY MOBILE DEMO BAR -->
+<div class="sticky-demo" id="sticky-demo" aria-label="Live demo access">
+  <div class="sticky-demo-pw">
+    <span>Demo password:</span>
+    <strong>888</strong>
+  </div>
+  <a href="https://pawpops-cuhuewhj.myshopify.com/" target="_blank" rel="noopener noreferrer"
+     class="btn btn-y" style="padding:10px 20px;font-size:13px;min-height:40px" data-track="pawpops-sticky-demo">
+    View Store →
+  </a>
+</div>
+
+<script>
+/* Mobile nav */
+(function(){
+  const hb=document.getElementById('hb'),menu=document.getElementById('mob-menu');
+  const links=menu.querySelectorAll('a');
+  function openM(){menu.removeAttribute('hidden');menu.classList.add('open');hb.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';links[0]&&links[0].focus()}
+  function closeM(){menu.hidden=true;menu.classList.remove('open');hb.setAttribute('aria-expanded','false');document.body.style.overflow='';hb.focus()}
+  hb.addEventListener('click',()=>menu.hidden?openM():closeM());
+  links.forEach(a=>a.addEventListener('click',closeM));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!menu.hidden)closeM()});
+})();
+
+/* Scroll reveal */
+(function(){
+  const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')})},{threshold:.08});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+})();
+
+/* Hide sticky demo bar when footer CTA is visible */
+(function(){
+  const sticky=document.getElementById('sticky-demo');
+  const cta=document.getElementById('cs-cta');
+  if(!sticky||!cta)return;
+  const io=new IntersectionObserver(entries=>{
+    sticky.style.display=entries[0].isIntersecting?'none':'';
+  });
+  io.observe(cta);
+})();
+
+/* Analytics */
+function track(n,d){d=d||{};if(typeof gtag!=='undefined')gtag('event',n,d);if(typeof fbq!=='undefined')fbq('trackCustom',n,d)}
+document.querySelectorAll('[data-track]').forEach(el=>el.addEventListener('click',()=>track(el.dataset.track)));
+</script>
+</body>
+</html>
